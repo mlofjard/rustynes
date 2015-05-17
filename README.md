@@ -1,6 +1,6 @@
 RustyNES
 ===
-A Nintendo Entertainment System (NES) emulator written in Rust
+A NES emulator written in Rust (for fun)
 ---
 
 ### Requirements
@@ -8,9 +8,19 @@ A Nintendo Entertainment System (NES) emulator written in Rust
 * Rust (duh)
 * Cargo
 
-### Installation
+### Compilation
 
-`$ cargo build`
+```
+$ cargo build
+```
+
+or
+
+```
+$ cargo build --release
+```
+
+will produce an executable `rustynes` in `target/debug` or `target/release` respectively.
 
 ### Usage
 
