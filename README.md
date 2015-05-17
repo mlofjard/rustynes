@@ -36,9 +36,3 @@ Options:
     --mode MODE        Choose mode of execution.
                        Valid values: run (default), rominfo.
 ```
-
-#### Options
-
-* `--mode <mode>`
-	* `run` (default)
-	* `nestest` - Run with nestest log output
