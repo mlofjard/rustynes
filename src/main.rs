@@ -16,8 +16,10 @@ fn main() {
 
     let rom = rom::Rom::create_from_file(&mut rom_handle);
 
-    println!("Size of PrgROM: {}", rom.header.prg_rom_size as i32 * 16384);
-    println!("Size of ChrROM: {}", rom.header.chr_rom_size as i32 * 8192);
+    println!("ROM format: {}", rom.get_rom_format());
+    println!("Size of PRG-ROM: {} Kb", rom.header.prg_rom_size as i32 * 16384);
+    println!("Size of CHR-ROM: {} Kb", rom.header.chr_rom_size as i32 * 8192);
+    println!("Size of PRG-RAM: {} Kb", rom.get_prg_ram_size());
 
     println!("PrgROM [0..10]:");
     for byte in &rom.prg_rom[..10] {

@@ -68,4 +68,34 @@ impl Rom {
             chr_rom: chr_rom,
         }
     }
+
+    pub fn get_rom_format(&self) -> &'static str {
+    	if self.is_nes20() {
+    		"NES 2.0"
+    	} else {
+    		"iNES"
+    	}
+    } 
+
+    pub fn get_prg_ram_size(&self) -> i32 {
+    	if self.is_nes20() {
+    		-1
+    	} else {
+    		if self.header.byte_8 == 0 {
+    			8192
+    		} else {
+    			self.header.byte_8 as i32 * 8192
+    		}
+    	}
+    }
+
+    pub fn get_mapper_number(&self) -> u8 {
+    	// upper nybble is first 4 bits of byte_7
+    	// lower nybble is first 4 bits of byte_6
+    	(self.header.byte_7 & 0xf0) | (self.header.byte_6 >> 4)
+    }
+
+    fn is_nes20(&self) -> bool {
+    	((self.header.byte_7 & 0x0f) >> 2) == 2
+    }
 }

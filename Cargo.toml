@@ -1,5 +1,11 @@
 [package]
-
 name = "RustyNES"
 version = "0.0.1"
 authors = [ "Mikael Lofjärd <mikael.lofjard@gmail.com>" ]
+
+[[bin]]
+name = "rustynes"
+
+[dependencies]
+docopt = "*"
+rustc-serialize = "*"  # if you're using `derive(RustcDecodable)`
